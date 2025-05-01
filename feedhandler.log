@@ -1,0 +1,1019 @@
+2025-04-30 20:06:26,715 : ERROR : BINANCE_FUTURES: Failed to parse symbol information: HTTPSConnectionPool(host='fapi.binance.com', port=443): Max retries exceeded with url: /fapi/v1/exchangeInfo (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000212C006FF40>, 'Connection to fapi.binance.com timed out. (connect timeout=None)'))
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x00000212C006FF40>, 'Connection to fapi.binance.com timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='fapi.binance.com', port=443): Max retries exceeded with url: /fapi/v1/exchangeInfo (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000212C006FF40>, 'Connection to fapi.binance.com timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchange.py", line 103, in symbol_mapping
+    data.append(cls.http_sync.read(addr, json=True, headers=headers, uuid=cls.id))
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 56, in read
+    r = requests.get(address, headers=headers, params=params)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='fapi.binance.com', port=443): Max retries exceeded with url: /fapi/v1/exchangeInfo (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000212C006FF40>, 'Connection to fapi.binance.com timed out. (connect timeout=None)'))
+2025-04-30 20:11:38,794 : ERROR : FH: Unhandled RuntimeError('This event loop is already running') - shutting down
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feedhandler.py", line 151, in run
+    loop.run_forever()
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 585, in run_forever
+    self._check_running()
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 577, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+2025-04-30 20:14:31,433 : ERROR : FH: Unhandled RuntimeError('This event loop is already running') - shutting down
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feedhandler.py", line 151, in run
+    loop.run_forever()
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 585, in run_forever
+    self._check_running()
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 577, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+2025-04-30 21:24:17,106 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 23, in book_callback
+    bids_depth = [(float(p), float(s)) for p,s in book.book.bids.items()][:TOP_N]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-04-30 21:24:27,287 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 23, in book_callback
+    bids_depth = [(float(p), float(s)) for p,s in book.book.bids.items()][:TOP_N]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-04-30 21:24:35,299 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 23, in book_callback
+    bids_depth = [(float(p), float(s)) for p,s in book.book.bids.items()][:TOP_N]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-04-30 21:24:44,569 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 23, in book_callback
+    bids_depth = [(float(p), float(s)) for p,s in book.book.bids.items()][:TOP_N]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-04-30 21:24:53,560 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 23, in book_callback
+    bids_depth = [(float(p), float(s)) for p,s in book.book.bids.items()][:TOP_N]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-05-01 09:33:58,935 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+ModuleNotFoundError: No module named 'winloop'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 282, in _snapshot
+    resp = await self.http_conn.read(self.rest_endpoints[0].route('l2book', self.sandbox).format(pair, max_depth))
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 164, in read
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 157, in _open
+    self.conn = aiohttp.ClientSession()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\client.py", line 359, in __init__
+    connector = TCPConnector(loop=loop)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\resolver.py", line 96, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-05-01 09:34:08,309 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+ModuleNotFoundError: No module named 'winloop'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 282, in _snapshot
+    resp = await self.http_conn.read(self.rest_endpoints[0].route('l2book', self.sandbox).format(pair, max_depth))
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 164, in read
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 157, in _open
+    self.conn = aiohttp.ClientSession()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\client.py", line 359, in __init__
+    connector = TCPConnector(loop=loop)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\resolver.py", line 96, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-05-01 09:34:17,925 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiodns\__init__.py", line 58, in __init__
+    import winloop
+ModuleNotFoundError: No module named 'winloop'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 282, in _snapshot
+    resp = await self.http_conn.read(self.rest_endpoints[0].route('l2book', self.sandbox).format(pair, max_depth))
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 164, in read
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 157, in _open
+    self.conn = aiohttp.ClientSession()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\client.py", line 359, in __init__
+    connector = TCPConnector(loop=loop)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\connector.py", line 869, in __init__
+    resolver = DefaultResolver(loop=self._loop)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiohttp\resolver.py", line 96, in __init__
+    self._resolver = aiodns.DNSResolver(*args, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\aiodns\__init__.py", line 63, in __init__
+    raise RuntimeError(
+RuntimeError: aiodns needs a SelectorEventLoop on Windows. See more: https://github.com/saghul/aiodns/issues/86
+2025-05-01 09:35:21,373 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 37, in book_callback
+    bids_depth = [
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 38, in <listcomp>
+    book.book.bids.peekitem(-i - 1)
+AttributeError: 'order_book.SortedDict' object has no attribute 'peekitem'
+2025-05-01 09:35:30,892 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 37, in book_callback
+    bids_depth = [
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 38, in <listcomp>
+    book.book.bids.peekitem(-i - 1)
+AttributeError: 'order_book.SortedDict' object has no attribute 'peekitem'
+2025-05-01 09:35:40,351 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 37, in book_callback
+    bids_depth = [
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 38, in <listcomp>
+    book.book.bids.peekitem(-i - 1)
+AttributeError: 'order_book.SortedDict' object has no attribute 'peekitem'
+2025-05-01 09:37:13,148 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 39, in book_callback
+    for price, size in list(book.book.bids.items())[-TOP_N:]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-05-01 09:37:20,331 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 39, in book_callback
+    for price, size in list(book.book.bids.items())[-TOP_N:]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-05-01 09:37:31,111 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 39, in book_callback
+    for price, size in list(book.book.bids.items())[-TOP_N:]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-05-01 09:37:43,015 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 39, in book_callback
+    for price, size in list(book.book.bids.items())[-TOP_N:]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-05-01 09:37:54,033 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 539, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 578, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+2025-05-01 09:53:13,647 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 27, in book_callback
+    key = book.book.bids.iloc[-i-1]
+AttributeError: 'order_book.SortedDict' object has no attribute 'iloc'
+2025-05-01 09:53:22,804 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 27, in book_callback
+    key = book.book.bids.iloc[-i-1]
+AttributeError: 'order_book.SortedDict' object has no attribute 'iloc'
+2025-05-01 09:53:32,267 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 27, in book_callback
+    key = book.book.bids.iloc[-i-1]
+AttributeError: 'order_book.SortedDict' object has no attribute 'iloc'
+2025-05-01 09:53:42,546 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\feed_handler_orderbook.py", line 27, in book_callback
+    key = book.book.bids.iloc[-i-1]
+AttributeError: 'order_book.SortedDict' object has no attribute 'iloc'
+2025-05-01 10:00:05,311 : ERROR : BINANCE_FUTURES: Failed to parse symbol information: HTTPSConnectionPool(host='fapi.binance.com', port=443): Max retries exceeded with url: /fapi/v1/exchangeInfo (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000023824A56D40>: Failed to resolve 'fapi.binance.com' ([Errno 11001] getaddrinfo failed)"))
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x0000023824A56D40>: Failed to resolve 'fapi.binance.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "D:\D Drive\order book\crypto1\lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='fapi.binance.com', port=443): Max retries exceeded with url: /fapi/v1/exchangeInfo (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000023824A56D40>: Failed to resolve 'fapi.binance.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchange.py", line 103, in symbol_mapping
+    data.append(cls.http_sync.read(addr, json=True, headers=headers, uuid=cls.id))
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 56, in read
+    r = requests.get(address, headers=headers, params=params)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='fapi.binance.com', port=443): Max retries exceeded with url: /fapi/v1/exchangeInfo (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000023824A56D40>: Failed to resolve 'fapi.binance.com' ([Errno 11001] getaddrinfo failed)"))
+2025-05-01 10:02:33,550 : ERROR : FH: Unhandled RuntimeError('This event loop is already running') - shutting down
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feedhandler.py", line 151, in run
+    loop.run_forever()
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 585, in run_forever
+    self._check_running()
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 577, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+2025-05-01 10:04:09,002 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 539, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 578, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+2025-05-01 10:04:10,106 : WARNING : BINANCE_FUTURES.ws.1: encountered connection issue [Errno 11001] getaddrinfo failed - reconnecting in 2.0 seconds...
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+2025-05-01 10:04:22,166 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 539, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 578, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+2025-05-01 10:04:26,167 : WARNING : BINANCE_FUTURES.ws.1: encountered connection issue [Errno 11001] getaddrinfo failed - reconnecting in 8.0 seconds...
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+2025-05-01 10:07:16,854 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 539, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 578, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+2025-05-01 10:07:17,932 : WARNING : BINANCE_FUTURES.ws.1: encountered connection issue [Errno 11001] getaddrinfo failed - reconnecting in 2.0 seconds...
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+2025-05-01 10:07:19,957 : WARNING : BINANCE_FUTURES.ws.1: encountered connection issue [Errno 11001] getaddrinfo failed - reconnecting in 4.0 seconds...
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+2025-05-01 10:07:23,980 : WARNING : BINANCE_FUTURES.ws.1: encountered connection issue [Errno 11001] getaddrinfo failed - reconnecting in 8.0 seconds...
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+2025-05-01 10:09:39,460 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\main.py", line 18, in book_callback
+    bids = list(depth[BID].items())[:5]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-05-01 10:09:51,185 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\main.py", line 18, in book_callback
+    bids = list(depth[BID].items())[:5]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-05-01 10:10:02,174 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 539, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 578, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+2025-05-01 10:10:14,173 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1016, in create_connection
+    infos = await self._ensure_resolved(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1395, in _ensure_resolved
+    return await loop.getaddrinfo(host, port, family=family, type=type,
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 855, in getaddrinfo
+    return await self.run_in_executor(
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 539, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 578, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+2025-05-01 10:10:28,212 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 541, in __await_impl__
+    self.connection = await self.create_connection()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 467, in create_connection
+    _, connection = await loop.create_connection(factory, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1040, in create_connection
+    sock = await self._connect_sock(
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 954, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\asyncio\selector_events.py", line 502, in sock_connect
+    return await fut
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 539, in __await_impl__
+    async with asyncio_timeout(self.open_timeout):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 181, in __aexit__
+    self._do_exit(exc_type)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\async_timeout.py", line 268, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 56, in _create_connection
+    async with self.conn.connect() as connection:
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 109, in connect
+    await self._open()
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection.py", line 323, in _open
+    self.conn = await connect(self.address, **self.ws_kwargs)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\websockets\asyncio\client.py", line 578, in __await_impl__
+    raise TimeoutError("timed out during opening handshake") from exc
+asyncio.exceptions.TimeoutError: timed out during opening handshake
+2025-05-01 10:10:53,009 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\main.py", line 18, in book_callback
+    bids = list(depth[BID].items())[:5]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
+2025-05-01 10:11:04,943 : ERROR : BINANCE_FUTURES.ws.1: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 65, in _create_connection
+    await self._handler(connection, self.handler)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\connection_handler.py", line 99, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance_futures.py", line 263, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 317, in _book
+    await self._snapshot(exchange_pair)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\exchanges\binance.py", line 289, in _snapshot
+    await self.book_callback(L2_BOOK, self._l2_book[std_pair], time.time(), timestamp=timestamp, raw=resp, sequence_number=self.last_update_id[std_pair])
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 247, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "D:\D Drive\order book\crypto1\lib\site-packages\cryptofeed\feed.py", line 258, in callback
+    await cb(obj, receipt_timestamp)
+  File "D:\D Drive\order book\main.py", line 18, in book_callback
+    bids = list(depth[BID].items())[:5]
+AttributeError: 'order_book.SortedDict' object has no attribute 'items'
